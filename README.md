@@ -1,6 +1,6 @@
 - - -
 
-<div align='center'> <h1>Living History through Newspaper Archives Report</h1></div>
+<div align='center'> <h1>Living History through Newspaper Archives</h1></div>
 
 - - -
 
