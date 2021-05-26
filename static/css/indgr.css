@@ -1,0 +1,188 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #fee1e1;
+}
+
+$outerYearSpacing: 35px;
+$cardWidth: 655px;
+$cardHeight: 342px;
+.wrapper {
+	position: absolute;
+	margin: (-$cardHeight/2) 0 0 (-$cardWidth/2);
+	left: 50%;
+	top: 50%;
+	height: $cardHeight;
+	width: $cardWidth;
+}
+
+.card {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/2017_bg.png);
+	background-size: cover;
+	width: $cardWidth;
+	height: $cardHeight;
+	border-radius: 5px;
+	position: absolute;
+	box-shadow: -20px 30px 116px 0 rgba(92, 15, 15, 0.54);
+	overflow: hidden;
+	z-index: 4;
+	&__orangeShine,
+	&__greenShine {
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	&__orangeShine {
+		background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/orange_shine.png);
+		right: -150px;
+		top: -90px;
+		bottom: 50px;
+		z-index: 2;
+		width: 570px;
+		height: 500px;
+	}
+	&__greenShine {
+		background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/279756/green_shine.png);
+		left: 20%;
+		top: 0;
+		bottom: 0;
+		z-index: 1;
+		width: 400px;
+	}
+	&__year {
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+		color: #fff;
+		font-size: 110px;
+		line-height: 110px;
+		padding: 55px 0;
+		font-weight: 100;
+		position: relative;
+		z-index: 2;
+	}
+	&__thankyou {
+		font-family: 'Oswald', sans-serif;
+		position: absolute;
+		text-transform: uppercase;
+		font-weight: 100;
+		left: 33%;
+		bottom: 20%;
+		z-index: 2;
+		color: #fff;
+		letter-spacing: 5px;
+		line-height: 17px;
+		font-size: 12px;
+		color: rgba(255, 255, 255, 0.5);
+	}
+	&__circle,
+	&__smallCircle {
+		position: absolute;
+		border-radius: 100%;
+		background-image: linear-gradient(-239deg, #3B4576 0%, #242A48 59%);
+		box-shadow: -10px -15px 90px 0 #191C41;
+		z-index: 2;
+	}
+	&__circle {
+		right: 68px;
+		bottom: 34px;
+		width: 230px;
+		height: 230px;
+	}
+	&__smallCircle {
+		right: 40%;
+		top: -7%;
+		width: 50px;
+		height: 50px;
+	}
+	&__outer-year {
+		font-family: 'Orbitron';
+		span {
+			position: absolute;
+			color: #fff;
+			font-size: 16px;
+			z-index: 4;
+			&:nth-child(1),
+			&:nth-child(4) {
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					width: 100%;
+					border-bottom: 2px solid #fff;
+				}
+			}
+			&:nth-child(1) {
+				top: $outerYearSpacing;
+				left: $outerYearSpacing;
+			}
+			&:nth-child(2) {
+				left: none;
+				top: $outerYearSpacing;
+				right: $outerYearSpacing;
+			}
+			&:nth-child(3) {
+				top: none;
+				bottom: $outerYearSpacing;
+				left: $outerYearSpacing;
+			}
+			&:nth-child(4) {
+				top: none;
+				left: none;
+				right: $outerYearSpacing;
+				bottom: $outerYearSpacing;
+			}
+		}
+	}
+	&__comet {
+		position: relative;
+		width: 8px;
+		height: 8px;
+		background-color: #fff;
+		border-radius: 100%;
+		&Outer {
+			position: absolute;
+			top: 30%;
+			left: 25%;
+		}
+		&--second {
+			right: -30px;
+			top: -15px;
+			transform: scale(0.6)
+		}
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 27%, rgba(255, 255, 255, 0) 100%);
+			border-radius: 20px;
+			transform: rotate(-45deg);
+		}
+		&:before {
+			width: 18px;
+			height: 70px;
+			transform-origin: -2px 13px;
+		}
+		&:after {
+			width: 12px;
+			height: 80px;
+			transform-origin: 0px 8px;
+		}
+	}
+}
+
+.source {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: -30px;
+	opacity: 0.5;
+	font-size: 12px;
+	a {
+		color: #000;
+	}
+}
