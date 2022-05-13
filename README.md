@@ -18,10 +18,10 @@
     * [Vectorization of Documents](#vectorization-of-documents)
     * [Dimensionality Reduction](#dimensionality-reduction)
     * [Classification](#classification)
+    * [Clustering](#clustering)
     * [Name Entity Recognition](#name-entity-recognition)
     * [Relation Extraction](#relation-extraction) 
     * [Knowledge Graph](#knowledge-graph)
-    * [Clustering](#clustering)
 * [Deployment](#deployment)
     * [Flask](#flask)
     * [NetworkX](#networkx)
@@ -193,6 +193,61 @@ We performed text classification because we were not having sufficient labelled 
 
 - - -
 
+### Clustering
+
+Clustering is the task of dividing the population or data points into a number of groups such that data points in the same groups are more similar to other data points in the same group than those in other groups. In simple words, the aim is to segregate groups with similar traits and assign them into clusters. 
+
+Let’s understand this with an example. Suppose, you are the head of a rental store and wish to understand preferences of your costumers to scale up your business. Is it possible for you to look at details of each costumer and devise a unique business strategy for each one of them? Definitely not. But, what you can do is to cluster all of your costumers into say 10 groups based on their purchasing habits and use a separate strategy for costumers in each of these 10 groups. And this is what we call clustering 
+
+In our project we have used k means clustering.Lets understand k means clustering in detail. 
+
+> K means: 
+
+K-Means Clustering is a simple yet powerful algorithm in data science 
+
+There are a plethora of real-world applications of K-Means Clustering 
+
+Clustering helps us understand our data in a unique way – by grouping things together into – you guessed it – clusters. 
+
+K-means is a centroid-based algorithm, or a distance-based algorithm, where we calculate the distances to assign a point to a cluster. In K-Means, each cluster is associated with a centroid. The main objective of the K-Means algorithm is to minimize the sum of distances between the points and their respective cluster centroid. 
+
+We have these 8 points and we want to apply k-means to create clusters for these points. Here’s how we can do it. 
+
+Step 1: Choose the number of clusters k 
+
+Step 2: Select k random points from the data as centroids 
+
+Step 3: Assign all the points to the closest cluster centroid 
+
+Step 4: Recompute the centroids of newly formed clusters 
+
+Step 5: Repeat steps 3 and 4 
+
+Stopping Criteria for K-Means Clustering 
+
+There are essentially three stopping criteria that can be adopted to stop the K-means algorithm: 
+
+Centroids of newly formed clusters do not change 
+
+Points remain in the same cluster 
+
+Maximum number of iterations are reached 
+
+We can stop the algorithm if the centroids of newly formed clusters are not changing. Even after multiple iterations, if we are getting the same centroids for all the clusters, we can say that the algorithm is not learning any new pattern and it is a sign to stop the training. 
+
+> Implementation of k means: 
+ 
+ ```python
+from sklearn.cluster import KMeans 
+
+kmeans = KMeans(init="random",n_clusters=3,n_init=10,max_iter=300,random_state=42) 
+
+kmeans.fit(X) 
+```
+![cluster](reportImages/cluster.jpg)
+
+- - -
+
 ### Name Entity Recognition
 
 
@@ -304,61 +359,6 @@ NetworkX is a Python package for the creation, manipulation, and study of the st
 
 ![grapheg](reportImages/grapheg.jpg)
 
-
-- - -
-
-### Clustering
-
-Clustering is the task of dividing the population or data points into a number of groups such that data points in the same groups are more similar to other data points in the same group than those in other groups. In simple words, the aim is to segregate groups with similar traits and assign them into clusters. 
-
-Let’s understand this with an example. Suppose, you are the head of a rental store and wish to understand preferences of your costumers to scale up your business. Is it possible for you to look at details of each costumer and devise a unique business strategy for each one of them? Definitely not. But, what you can do is to cluster all of your costumers into say 10 groups based on their purchasing habits and use a separate strategy for costumers in each of these 10 groups. And this is what we call clustering 
-
-In our project we have used k means clustering.Lets understand k means clustering in detail. 
-
-> K means: 
-
-K-Means Clustering is a simple yet powerful algorithm in data science 
-
-There are a plethora of real-world applications of K-Means Clustering 
-
-Clustering helps us understand our data in a unique way – by grouping things together into – you guessed it – clusters. 
-
-K-means is a centroid-based algorithm, or a distance-based algorithm, where we calculate the distances to assign a point to a cluster. In K-Means, each cluster is associated with a centroid. The main objective of the K-Means algorithm is to minimize the sum of distances between the points and their respective cluster centroid. 
-
-We have these 8 points and we want to apply k-means to create clusters for these points. Here’s how we can do it. 
-
-Step 1: Choose the number of clusters k 
-
-Step 2: Select k random points from the data as centroids 
-
-Step 3: Assign all the points to the closest cluster centroid 
-
-Step 4: Recompute the centroids of newly formed clusters 
-
-Step 5: Repeat steps 3 and 4 
-
-Stopping Criteria for K-Means Clustering 
-
-There are essentially three stopping criteria that can be adopted to stop the K-means algorithm: 
-
-Centroids of newly formed clusters do not change 
-
-Points remain in the same cluster 
-
-Maximum number of iterations are reached 
-
-We can stop the algorithm if the centroids of newly formed clusters are not changing. Even after multiple iterations, if we are getting the same centroids for all the clusters, we can say that the algorithm is not learning any new pattern and it is a sign to stop the training. 
-
-> Implementation of k means: 
- 
- ```python
-from sklearn.cluster import KMeans 
-
-kmeans = KMeans(init="random",n_clusters=3,n_init=10,max_iter=300,random_state=42) 
-
-kmeans.fit(X) 
-```
-![cluster](reportImages/cluster.jpg)
 
 - - -
 - - - 
